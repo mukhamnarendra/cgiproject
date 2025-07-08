@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import CustomNavbar from './components/Navbor';
+import CarouselSection from './components/CarouselSection';
+import Footer from './components/Footer';
 
-function App() {
+// Dummy Pages
+
+import Home from './components/Home';
+import About from './components/About';
+import Services from './components/Services';
+import Courses from './components/Courses';
+import Contact from './components/Contact';
+import Certifates from './components/Certifates';
+import Loginpage from './components/Loginpage';
+import Registerpage from './components/Registerpage';
+
+
+
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <CustomNavbar />
+       <CarouselSection/>
+      <Routes>
+        <Route path="/home" element={<Home/>} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/courses" element={<Courses/>} />
+        <Route path="/contactus" element={<Contact />} />
+        <Route path="/certificates" element={<Certifates />} />
+        <Route path="/loginpage" element={<Loginpage />} />
+            <Route path="/registerpage" element={<Registerpage />} />
+      </Routes>
+      <Footer />
+    </Router>
+   
   );
-}
+};
 
 export default App;
