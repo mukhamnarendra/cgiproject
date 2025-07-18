@@ -17,7 +17,9 @@ const LoginPage = () => {
 
   useEffect(() => {
     const userInfo = localStorage.getItem('userInfo');
-    if (userInfo) navigate('/home');
+    if (userInfo && window.location.pathname === '/') {
+      navigate('/home'); // or your default home page
+    }
   }, [navigate]);
 
   const handleSubmit = async (e) => {
@@ -40,14 +42,15 @@ const LoginPage = () => {
       });
 
       const data = await res.json();
-console.log(data)
+      console.log("Response status:", res.status);
+      console.log("Login response data:", data);
+
       if (res.ok) {
         localStorage.setItem('userInfo', JSON.stringify(data));
         setSuccessMsg('Login successful!');
         setOpenSnackbar(true);
-        setTimeout(() => {
-          navigate('/home');
-        }, 1500);
+        console.log("Navigating to Allcouses");
+        navigate('/allcourses'); // ✅ Navigation happens here
       } else {
         setErrorMsg(data.message || 'Invalid credentials');
         setOpenSnackbar(true);

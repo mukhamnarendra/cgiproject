@@ -14,6 +14,8 @@ import Contact from './components/Contact';
 import Certifates from './components/Certifates';
 import Loginpage from './components/Loginpage';
 import Registerpage from './components/Registerpage';
+import Allcouses from './components/Allcouses';
+import Paymenypage from './components/Paymenypage';
 
 
 
@@ -33,6 +35,8 @@ const App = () => {
         <Route path="/certificates" element={<Certifates />} />
         <Route path="/loginpage" element={<Loginpage />} />
             <Route path="/registerpage" element={<Registerpage />} />
+            <Route path="/allcourses" element={<Allcouses />} />
+            <Route path="/paymentpage" element={<Paymenypage />} />
       </Routes>
       <Footer />
     </Router>
